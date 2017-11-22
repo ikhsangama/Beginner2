@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    int kuantity = 0;
+    int jumlah = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,27 +15,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void submitOrder(View view){
-        displayPrice(kuantity*5);
+    public void Increment_btn(View v){
+        jumlah = ++jumlah;
+        update(jumlah);
     }
 
-    private void displayPrice(int harga){
-        TextView tv = findViewById(R.id.price_tv);
-        tv.setText("$ "+ harga);
+    public void Decrement_btn(View v){
+        jumlah = --jumlah;
+        update(jumlah);
     }
 
-    public void increment(View view){
-        kuantity = kuantity+1;
-        display(kuantity);
+    private void update(int j) {
+        TextView tv = findViewById(R.id.jumlah_tv);
+        tv.setText(""+ j);
     }
 
-    public void decrement(View view){
-        kuantity = kuantity-1;
-        display(kuantity);
-    }
-
-    private void display(int number) {
-        TextView kuantityTextView = (TextView) findViewById(R.id.kuantity_text_view);
-        kuantityTextView.setText("" + number);
+    public void Pesan_btn (View v){
+        TextView tv = findViewById(R.id.harga_tv);
+        tv.setText("$ "+ jumlah*5);
     }
 }
